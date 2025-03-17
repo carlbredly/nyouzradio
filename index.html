@@ -37,16 +37,6 @@
     <meta name="twitter:title" content="Nyouz Radio">
     <meta name="twitter:description" content="Écoutez Nyouz Radio, vos émissions en streaming, à tout moment, en ligne.">
     <meta name="twitter:image" content="src/nyouznet.jpg">
-    <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1L6MTSE6M"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-Z1L6MTSE6M');
-    </script>
 
 
     <title>Nyouz Radio</title>
@@ -102,9 +92,9 @@
                   <textarea id="message" name="message" rows="6" placeholder="Votre message" required></textarea>
                   
                   <!-- RGPD -->
-                  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                  <div class="checkbox-container">
                     <input type="checkbox" id="gdpr" name="gdpr" required>
-                    <label for="gdpr" style="margin-left: 10px;">J'accepte que mes données soient utilisées conformément à la politique de confidentialité.</label>
+                    <label for="gdpr">J'accepte que mes données soient utilisées conformément à la politique de confidentialité.</label>
                   </div>
                   
                   <!-- Bouton d'envoi -->

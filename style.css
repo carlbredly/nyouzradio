@@ -17,21 +17,29 @@ button {
 }
 
 body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    color: white;
 }
 
 .logo {
     display: block;
     width: 70px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
 }
 
 .logo img {
     width: 60px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
 }
 
 header {
@@ -40,25 +48,26 @@ header {
     left: 0;
     width: 100%;
     display: flex;
-    padding: 10px 7%;
+    padding: 15px 7%;
     align-items: center;
     justify-content: space-between;
     transition: all 0.5s ease;
-
     z-index: 1000;
 }
 
 .left a {
-    padding: 10px 30px;
-    background-color: rgb(95, 2, 62);
+    padding: 12px 35px;
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
     border-radius: 25px;
     transition: all 0.3s ease;
-    color: aliceblue;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
 }
 
 .left a:hover {
-    border: none;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.308);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4);
 }
 
 .player {
@@ -72,36 +81,44 @@ header {
 
 .player img {
     width: 65vh;
-    border-radius: 15px; /* Arrondir les coins */
-    filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.567)); /* Ombre en tenant compte des transparences */
+    border-radius: 20px;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.player img:hover {
+    transform: scale(1.02);
 }
 
 #stop, #play {
-    background-color: rgb(255, 255, 255); /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 10px 16px; /* Some padding */
-    font-size: 25px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 25px;
+    cursor: pointer;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+    transition: all 0.3s ease;
 }
 
-#stop, #play i {
-    align-items: center;
-    justify-content: center;
+#stop:hover, #play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4);
 }
-
-
 
 .gaincontainer {
     display: flex;
-    column-gap: 10px;
+    column-gap: 15px;
     position: absolute;
     top: 90.5%;
     left: 50%;
@@ -110,34 +127,37 @@ header {
     transition: all 0.5s ease;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(231, 228, 228, 0.186);
-    border-radius: 15px;
-    padding: 5px 10px;
-}
-.icon, .icondwat {
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-    
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.icon, .icondwat {
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover, .icondwat:hover {
+    transform: scale(1.2);
+}
 
 input[type=range] {
     -webkit-appearance: none;
     outline: none;
     width: 200px;
     height: 4px;
-    background: #007BFF;
+    background: transparent;
     border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-    
+    transition: all 0.3s ease;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-    background: linear-gradient(90deg, #ad0000 0%, #ff4040 100%);
+    background: linear-gradient(90deg, #ff3366 0%, #ff6b6b 100%);
     height: 4px;
     border-radius: 5px;
 }
@@ -147,110 +167,109 @@ input[type=range]::-webkit-slider-thumb {
     appearance: none;
     width: 20px;
     height: 20px;
-    background: #ffffff; /* Couleur du curseur */
-    border: 2px solid #ff0000; /* Bordure du curseur */
-    border-radius: 50%; /* Curseur rond */
-    cursor: pointer; /* Indique que c'est cliquable */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.304); /* Effet d'ombre */
-    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
-    margin-top: -8px; /* Décale le curseur vers le haut pour l'aligner avec la barre */
+    background: white;
+    border: 2px solid #ff3366;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 51, 102, 0.3);
+    transition: all 0.3s ease;
+    margin-top: -8px;
 }
 
-/* Effet de hover et focus sur le curseur */
-input[type="range"]::-webkit-slider-thumb:hover,
-input[type="range"]::-webkit-slider-thumb:focus {
-    transform: scale(1.2); /* Agrandit légèrement */
-    background: #ff0000; /* Change la couleur */
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #ff3366;
 }
 
-input[type="range"]::-ms-track {
-    background: linear-gradient(90deg, #007BFF 0%, #00C6FF 100%);
-    height: 8px;
-    border-radius: 5px;
-    border: none;
-}
-
-.kontak{
+.kontak {
     max-width: 60%;
     width: 30%;
-    padding: 20px;
+    padding: 30px;
     position: absolute;
     top: 0;
     right: 0;
     height: 100vh;
-
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(231, 228, 228, 0.397);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 1001;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
     overflow: scroll;
     scrollbar-width: none;
-    transition: ease-in-out 0.7s;
+    transition: all 0.7s ease-in-out;
 }
+
 .kontak::-webkit-scrollbar {
     width: 8px;
 }
+
 .kontak::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
 
 h1 {
     text-align: center;
-    color: #000000;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  label {
-    align-self: flex-start;
-    margin-bottom: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #000000;
-  }
-textarea{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #4c022c;
-    border-radius: 4px;
-  }
-.kontak input{
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-weight: 600;
 }
-  textarea {
-    resize: none;
-  }
-  input[type="checkbox"] {
-    width: auto;
-  }
+
+label {
+    align-self: flex-start;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.kontak input, .kontak textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.kontak input:focus, .kontak textarea:focus {
+    outline: none;
+    border-color: #ff3366;
+    background: rgba(255, 255, 255, 0.15);
+}
+
 .voye {
     width: 100%;
-    background-color: #0073ff;
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
-    padding: 10px;
-    border-radius: 4px;
-  }
+    transition: all 0.3s ease;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .voye:hover {
-    background-color: #00a2ff;
-  }
-  .note {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+}
+
+.note {
     font-size: 0.9em;
     color: #666;
-  }
-.volin{
+}
+
+.volin {
     width: 100%;
     padding: 10px;
     display: flex;
@@ -258,38 +277,21 @@ textarea{
     justify-content: center;
 }
 
-
-  #disk {
+#disk {
     transition: transform 0.2s linear;
 }
 
 #disk.rotation {
     animation: spin 5s linear infinite;
 }
-.icon, .icondwat{
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-   
-   
-}
-.femen{
+
+.femen {
     position: absolute;
     left: 0;
-    top:0;
+    top: 0;
     padding: 10px;
     font-size: 20px;
 }
-
-
-
-
-
-
-
-
-
-
 
 @keyframes spin {
     from {
@@ -306,16 +308,17 @@ textarea{
     }
 
     .player img {
-        width: 50vw; /* Adaptation pour petits écrans */
+        width: 50vw;
     }
 
     input[type=range] {
-        width: 150px; /* Ajustement de la largeur pour petits écrans */
+        width: 150px;
     }
-    .kontak{
-        width: 60%;
+    .kontak {
+        width: 100%;
+        max-width: 100%;
     }
-    body{
+    body {
         overflow: hidden;
     }
 }
@@ -326,7 +329,7 @@ textarea{
     }
 
     .player img {
-        width: 80vw; /* Adaptation pour petits écrans */
+        width: 80vw;
     }
 
     .logo img {
@@ -341,12 +344,48 @@ textarea{
         top: 85.5%;
     }
     input[type=range] {
-        width: 120px; /* Réduction de la largeur du curseur pour les écrans très petits */
+        width: 120px;
     }
-    .kontak{
-        width: 78%;
+    .kontak {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
     }
-    body{
+    body {
         overflow: hidden;
     }
+}
+
+.kontak input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #ff3366;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.kontak input[type="checkbox"]:checked {
+    background: #ff3366;
+    border-color: #ff3366;
+}
+
+.kontak input[type="checkbox"]:hover {
+    border-color: #ff3366;
+}
+
+.kontak .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.kontak .checkbox-container label {
+    margin: 0;
+    cursor: pointer;
 }
